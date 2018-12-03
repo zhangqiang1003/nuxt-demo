@@ -5,6 +5,7 @@
       <div class="test1">
         <span>23456</span>
       </div>
+      <div>{{ $t('TEST1') }}</div>
       <!-- <logo/>
       <h1 class="title">
         first-my-demo
@@ -40,6 +41,7 @@ export default {
   },
   methods: {
     apiTest() {
+      console.log(this.$i18n.messages)
       const params = {
         category: routeTrans[this.$route.params.type],
         ab: 'welcome_3',
