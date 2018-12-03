@@ -1,7 +1,8 @@
 <template>
   <section class="container">
     <div>
-      <logo/>
+      1
+      <!-- <logo/>
       <h1 class="title">
         first-my-demo
       </h1>
@@ -17,17 +18,47 @@
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           class="button--grey">GitHub</a>
-      </div>
+      </div> -->
     </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import { getArticleList, ljbInventory } from '~/api/index'
+import { routeTrans } from '~/static/config'
 export default {
   components: {
     Logo
+  },
+  mounted() {
+    this.apiTest()
+    this.apiTest1()
+  },
+  methods: {
+    apiTest() {
+      const params = {
+        category: routeTrans[this.$route.params.type],
+        ab: 'welcome_3',
+        src: 'web'
+      }
+      getArticleList(params)
+        .then(res => {
+          console.log(res)
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    },
+    apiTest1() {
+      ljbInventory()
+        .then(res => {
+          console.log(res)
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    }
   }
 }
 </script>

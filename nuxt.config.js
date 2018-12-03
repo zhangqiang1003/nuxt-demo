@@ -19,7 +19,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: 'yellow' },
 
   /*
   ** Global CSS
@@ -43,6 +43,21 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
+  },
+  proxy: {
+    '/rapi': {
+      target: 'https://recommender-api-ms.juejin.im',
+      pathRewrite: { '^/rapi': '' }
+    },
+    '/tapi': {
+      target: 'https://timeline-merger-ms.juejin.im',
+      pathRewrite: { '^/tapi': '' }
+    },
+    '/qapi': {
+      target: 'http://webtest.qeeyou.cn',
+      pathRewrite: { '^/qapi': '' }
+    }
   },
 
   /*
@@ -52,6 +67,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+    vendor: ['axios'],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
