@@ -2,6 +2,9 @@
   <section class="container">
     <div>
       1
+      <div class="test1">
+        <span>23456</span>
+      </div>
       <!-- <logo/>
       <h1 class="title">
         first-my-demo
@@ -63,34 +66,21 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  .test1 {
+    color: red;
+    & > span {
+      display: block;
+      height: 100px;
+      width: 200px;
+      line-height: 100px;
+    }
+  }
 }
 </style>
