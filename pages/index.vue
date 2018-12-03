@@ -1,10 +1,10 @@
 <template>
   <section class="container">
     <div>
-      1
       <div class="test1">
-        <span>23456</span>
+        <span>23456这是scss的测试</span>
       </div>
+      <p>这是引入normalize.css的测试</p>
       <div>{{ $t('TEST1') }}</div>
       <!-- <logo/>
       <h1 class="title">
@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     apiTest() {
-      console.log(this.$i18n.messages)
+      console.log(this._)
       const params = {
         category: routeTrans[this.$route.params.type],
         ab: 'welcome_3',

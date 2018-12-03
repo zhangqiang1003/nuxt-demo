@@ -32,7 +32,10 @@ module.exports = {
   router: {
     middleware: 'i18n'
   },
-  plugins: [{ src: '~/plugins/i18n.js', ssr: true }],
+  plugins: [
+    { src: '~/plugins/i18n.js', ssr: true },
+    { src: '~/plugins/lodash.js', ssr: true }
+  ],
 
   /*
   ** Nuxt.js modules
@@ -70,7 +73,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    vendor: ['axios'],
+    vendor: ['axios', 'lodash'],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
