@@ -1,0 +1,253 @@
+@import './_mixin.scss';
+@import './_tool.scss';
+
+div {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Microsoft YaHei';
+  margin: 0;
+}
+
+.bg {
+  background-size: 100%;
+
+  background-repeat: no-repeat;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.specials-container {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  .wrapper {
+    position: relative;
+    width: remb(750px);
+    overflow: hidden;
+    .get-awards-btn {
+      width: remb(300px);
+      height: remb(86px);
+      @include pcBg('20180917MidAutumnFestival-m_bu.jpg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: remb(30px);
+      font-weight: 400;
+      color: rgba(87, 48, 25, 1);
+      text-decoration: none;
+      &.is-get {
+        font-size: remb(24px);
+      }
+    }
+    .notice {
+      font-size: remb(24px);
+      font-weight: 400;
+      color: rgba(139, 146, 185, 1);
+      line-height: remb(30px);
+      margin-top: remb(40px);
+      text-align: center;
+      margin-bottom: remb(44px);
+    }
+  }
+
+  .wrapper1 {
+    height: remb(750px);
+    @include pcBg('20180917MidAutumnFestival-m_bg.jpg');
+
+    .act-time {
+      font-size: remb(24px);
+      font-weight: 800;
+      color: rgba(255, 237, 149, 1);
+      text-align: center;
+      margin-top: remb(369px);
+    }
+  }
+
+  .wrapper2 {
+    height: remb(1250px);
+    padding-top: remb(23px);
+    @include pcBg('20180917MidAutumnFestival-m_bg1.jpg');
+
+    .wrapper-title {
+      width: remb(750px);
+      height: remb(92px);
+      font-size: remb(47px);
+      font-weight: 500;
+      color: rgba(113, 27, 16, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: remb(25px);
+      padding-left: remb(35px);
+      @include pcBg('20180917MidAutumnFestival-m_tit1.png');
+    }
+
+    .wrapper-sec-dis {
+      font-size: remb(24px);
+      font-weight: 400;
+      color: rgba(255, 236, 144, 1);
+      text-align: center;
+      line-height: remb(48px);
+      margin-top: remb(12px);
+      margin-bottom: remb(26px);
+    }
+
+    .award-item {
+      width: remb(650px);
+      height: remb(180px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // padding-top: remb(42px);
+      padding-left: remb(60px);
+      padding-right: remb(80px);
+      margin-bottom: remb(40px);
+      @include pcBg('20180917MidAutumnFestival-m_ka_bg.jpg');
+
+      .award-item-title {
+        font-size: remb(60px);
+      }
+
+      .awart-item-user {
+        font-size: remb(20px);
+      }
+
+      .award-item-left {
+        color: #FFED92;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .award-item-right {
+        color: #6B3625;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .jion-time-container {
+      width: remb(650px);
+      height: remb(100px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: remb(24px);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 1);
+      background: rgba(55, 60, 88, 1);
+      margin-bottom: remb(39px);
+
+      span {
+        color: #FADE7E;
+      }
+    }
+  }
+
+  .wrapper3 {
+    background: rgba(65, 71, 103, 1);
+    padding-top: remb(43px);
+    .wrapper-title2 {
+      width: remb(750px);
+      height: remb(92px);
+      @include pcBg('20180917MidAutumnFestival-m_tit2.png');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: remb(20px);
+      padding-left: remb(40px);
+      font-size: remb(50px);
+      font-weight: 500;
+      color: rgba(113, 27, 16, 1);
+      margin-bottom: remb(24px);
+    }
+    .wrapper-sec-dis {
+      font-size: remb(24px);
+      font-weight: 400;
+      color: rgba(255, 236, 144, 1);
+      text-align: center;
+      line-height: remb(48px);
+      margin-top: remb(12px);
+      margin-bottom: remb(26px);
+    }
+    .wrapper3-container {
+      position: relative;
+      width: remb(650px);
+      height: remb(800px);
+      padding-top: remb(286px);
+      @include pcBg('20180917MidAutumnFestival-m_step.jpg');
+      .dis-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: remb(24px);
+        font-weight:400;
+        color:rgba(255,236,144,1);
+        &:nth-child(1) {
+          padding-left: remb(100px);
+          padding-right: remb(67px);
+        }
+        &:nth-child(2) {
+          padding-left: remb(89px);
+          padding-right: remb(80px);
+          margin-top: remb(331px);
+          span {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          }
+        }
+      }
+      .get-awards-btn {
+        position: absolute;
+        left: 50%;
+        margin-left: remb(-150px);
+        bottom: remb(-43px);
+      }
+    }
+    .show-awards {
+      display: block;
+      width: remb(320px);
+      margin: 0 auto;
+      font-size: remb(30px);
+      font-weight:400;
+      color:rgba(255,255,255,1);
+      text-align: center;
+      margin-top: remb(78px);
+    }
+    .rules-container {
+      width: remb(732px);
+      height: remb(567px);
+      padding-top: remb(55px);
+      margin-bottom: remb(152px);
+      @include pcBg('20180917MidAutumnFestival-m_rule_bg.png');
+      .rules-title {
+        font-size: remb(50px);
+        font-weight:400;
+        color:rgba(250,218,115,1);
+        line-height: remb(36px);
+        padding-left: remb(275px);
+        margin-bottom: remb(55px);
+      }
+      .rule {
+        width: remb(550px);
+        font-size: remb(24px);
+        font-weight:400;
+        color:rgba(250,218,115,1);
+        line-height: remb(42px);
+      }
+    }
+  }
+}

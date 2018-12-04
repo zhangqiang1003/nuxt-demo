@@ -1,0 +1,487 @@
+@import './_mixin.scss';
+@import './_tool.scss';
+
+div {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Microsoft YaHei';
+}
+
+.bg {
+  background-size: 100%;
+
+  background-repeat: no-repeat;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.specials-container {
+  overflow: hidden;
+
+  margin: 0 auto;
+
+  margin-top: 100px;
+
+  min-width: 1300px;
+
+  max-width: 1920px;
+
+  width: 100%;
+
+  .wrapper {
+    position: relative;
+
+    width: rem(1920px);
+
+    .notices {
+      margin-top: rem(30px);
+      text-align: center;
+      font-size: rem(18px);
+      font-weight:400;
+      color:rgba(139,146,185,1);
+      line-height: rem(30px);
+    }
+  }
+
+  .get-awards-btn {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: rem(180px);
+
+    height: rem(60px);
+
+    color: rgba(87, 48, 25, 1);
+
+    font-weight: 400;
+
+    font-size: rem(20px);
+    text-decoration: none;
+
+    cursor: pointer;
+    &.is-get {
+      font-size: rem(16px);
+    }
+
+    @include pcBg('20180917MidAutumnFestival_bu_bg.jpg');
+
+    &::after {
+      display: none;
+
+      content: '';
+
+      @include pcBg('20180917MidAutumnFestival_bu_hover.jpg');
+    }
+
+    &:hover {
+      @include pcBg('20180917MidAutumnFestival_bu_hover.jpg');
+    }
+  }
+
+  .wrapper-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding-left: rem(10px);
+
+    width: rem(620px);
+
+    height: rem(70px);
+
+    color: rgba(113, 27, 16, 1);
+
+    text-align: center;
+
+    letter-spacing: rem(15px);
+
+    font-weight: 500;
+
+    font-size: rem(40px);
+
+    @include pcBg('20180917MidAutumnFestival_tit1_bg.png');
+  }
+
+  .wrapper-sec-title {
+    margin-top: rem(20px);
+
+    color: rgba(255, 236, 144, 1);
+
+    text-align: center;
+
+    font-weight: 400;
+
+    font-size: rem(18px);
+
+    line-height: rem(30px);
+  }
+
+  .wrapper1 {
+    overflow: hidden;
+
+    padding-top: rem(20px);
+
+    height: rem(900px);
+
+    @include pcBg('20180917MidAutumnFestival_banner_bg.jpg');
+
+    .sepcials-logo {
+      width: rem(200px);
+
+      height: rem(43px);
+
+      @include pcBg('20180917MidAutumnFestival_logo.png');
+    }
+
+    .time-end {
+      margin-top: rem(330px);
+
+      color: rgba(79, 30, 15, 1);
+
+      text-align: center;
+
+      font-weight: 800;
+
+      font-size: rem(18px);
+    }
+  }
+
+  .wrapper2 {
+    overflow: hidden;
+
+    padding-top: rem(50px);
+
+    height: rem(899px);
+
+    @include pcBg('20180917MidAutumnFestival_bg1.jpg');
+
+    .wrapper-title {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding-left: rem(10px);
+
+      width: rem(620px);
+
+      height: rem(70px);
+
+      color: rgba(113, 27, 16, 1);
+
+      text-align: center;
+
+      letter-spacing: rem(15px);
+
+      font-weight: 500;
+
+      font-size: rem(40px);
+
+      @include pcBg('20180917MidAutumnFestival_tit1_bg.png');
+    }
+
+    .wrapper-sec-title {
+      margin-top: rem(20px);
+
+      color: rgba(255, 236, 144, 1);
+
+      text-align: center;
+
+      font-weight: 400;
+
+      font-size: rem(18px);
+
+      line-height: rem(30px);
+    }
+
+    .wrapper-container {
+      display: flex;
+
+      justify-content: center;
+
+      margin-top: rem(60px);
+
+      width: 100%;
+
+      .container-item {
+        display: flex;
+
+        overflow: hidden;
+
+        align-items: center;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        padding-bottom: rem(51px);
+
+        width: rem(312px);
+
+        height: rem(382px);
+
+        @include pcBg('20180917MidAutumnFestival_ka_bg.png');
+
+        &:nth-child(2) {
+          margin: 0 rem(95px);
+        }
+
+        .item-title {
+          display: flex;
+
+          align-items: center;
+
+          justify-content: center;
+
+          box-sizing: content-box;
+
+          margin-top: rem(81px);
+
+          padding: 0 rem(13px);
+
+          height: rem(35px);
+
+          border: rem(3px) solid rgba(137, 60, 24, 1);
+
+          color: rgba(137, 60, 24, 1);
+
+          font-weight: bold;
+
+          font-size: rem(18px);
+        }
+
+        .award-days {
+          display: flex;
+
+          align-items: baseline;
+
+          justify-content: center;
+
+          color: rgba(137, 60, 24, 1);
+
+          font-weight: 400;
+
+          font-size: rem(30px);
+
+          span {
+            font-size: rem(100px);
+          }
+        }
+
+        .qeeyou-vip {
+          color: rgba(250, 223, 130, 1);
+
+          font-weight: bold;
+
+          font-size: rem(24px);
+        }
+
+        .act-dis {
+          color: #d66a4a;
+
+          font-weight: 400;
+
+          font-size: rem(18px);
+        }
+      }
+    }
+
+    .join-container {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding-left: rem(33px);
+
+      width: rem(800px);
+
+      height: rem(60px);
+
+      color: rgba(255, 255, 255, 1);
+
+      font-weight: 400;
+
+      font-size: rem(20px);
+    
+      margin: 0;
+
+      @include pcBg('20180917MidAutumnFestival_bg3.png');
+
+      span {
+        color: #FADE7E;
+      }
+    }
+  }
+
+  .wrapper3 {
+    overflow: hidden;
+    height: rem(1200px);
+    padding-top: rem(50px);
+    @include pcBg('20180917MidAutumnFestival_bg2.jpg');
+    .wrapper-title {
+      width: rem(673px);
+      height: rem(70px);
+      @include pcBg('20180917MidAutumnFestival_tit2_bg.png');
+      padding-left: rem(15px);
+      letter-spacing: rem(14px);
+    }
+    .wrapper-container {
+      margin-top: rem(50px);
+      width: rem(1200px);
+      height: rem(320px);
+      @include pcBg('20180917MidAutumnFestival_step.jpg');
+      display: flex;
+      justify-content: space-between;
+      padding: rem(245px) rem(79px) 0 rem(98px);
+      .item-dis {
+        font-size: rem(18px);
+        font-weight:400;
+        color:rgba(255,236,144,1);
+        line-height: rem(30px);
+        text-align: center;
+      }
+    }
+    .get-awards-btn {
+      margin-top: rem(32px);
+    }
+    .show-awards {
+      display: block;
+      width: rem(200px);
+      text-align: center;
+      font-size: rem(18px);
+      font-weight:400;
+      color:rgba(255,255,255,1);
+      margin-top: rem(24px);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .rules-container {
+      width: 981px;
+      height: 235px;
+      overflow: hidden;
+      @include pcBg('20180917MidAutumnFestival_rule_bg.png');
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 15px;
+      padding-bottom: 32px;
+      margin-top: rem(94px);
+      @media screen and (max-width: 1800px) {
+        margin-top: rem(10px);
+      }
+      .title {
+        font-size: 24px;
+        font-weight:400;
+        color:rgba(255,231,132,1);
+        line-height: 30px;
+        padding-left: 415px;
+      }
+      .rule {
+        padding-left: 94px;
+        font-size: 14px;
+        font-weight:400;
+        color:rgba(255,231,132,1);
+        line-height: 24px;
+      }
+    }
+  }
+}
+
+.invite-share-model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: rgba(0,0,0, .6);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  &.act {
+    display: flex;
+  }
+  .invite-model-container {
+    position: relative;
+    z-index: 10001;
+    width: 619px;
+    height: 261px;
+    display: flex;
+    padding-top: 74px;
+    padding-left: 74px;
+    align-items: flex-start;
+    .invite-qrcode {
+      width: 140px;
+      height: 140px;
+      min-width: 140px;
+      flex-shrink: 0;
+      margin-right: 29px;
+      img {
+        width: 100%;
+      }
+    }
+    .share-link-container {
+      .invite-model-title {
+        font-size:18px;
+        font-weight:400;
+        color:rgba(122,42,17,1);
+      }
+      .share-link {
+        width:263px;
+        height:75px;
+        background:rgba(240,184,65,1);
+        padding: 7px 10px;
+        font-size:14px;
+        font-weight:400;
+        color:rgba(122,42,17,1);
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        word-break:break-all;
+        line-height: 21px;
+        margin-top: 17px;
+      }
+    }
+    @include  pcBg('20180917MidAutumnFestiva_tc_bg.png');
+    .share-btn {
+      position: absolute;
+      bottom: -14px;
+      right: 168px;
+      width: rem(150px);
+      height: rem(45px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size:18px;
+      font-weight:400;
+      color:rgba(255,255,255,1);
+      cursor: pointer;
+      @include  pcBg('20180917MidAutumnFestiva_tc_bu.png');
+    }
+  }
+  .bg-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+  }
+}
