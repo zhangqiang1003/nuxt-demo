@@ -1,21 +1,8 @@
 <template>
   <div>
-    <div class="head-nav">
-      <HeadNav />
-    </div>
     <nuxt/>
   </div>
 </template>
-
-<script>
-import HeadNav from '~/components/HeadNav.vue'
-export default {
-  name: 'Default',
-  components: {
-    HeadNav
-  }
-}
-</script>
 
 <style>
 html {
@@ -29,11 +16,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-.head-nav {
-  width: 100%;
-  height: 99px;
-  border-bottom: 1px solid #808080;
-}
+
 *,
 *:before,
 *:after {
