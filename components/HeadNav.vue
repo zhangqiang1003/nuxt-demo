@@ -58,6 +58,7 @@ export default {
 }
 ul {
   display: inline;
+  padding: 0;
 }
 li {
   display: inline;

@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div class="head-nav">
+    <div class="head-nav-wrapper">
       <HeadNav />
     </div>
     <nuxt/>
+    <div class="footer-wrapper">
+      底部
+    </div>
   </div>
 </template>
 
@@ -29,7 +32,7 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-.head-nav {
+.head-nav-wrapper {
   width: 100%;
   height: 99px;
   border-bottom: 1px solid #808080;
