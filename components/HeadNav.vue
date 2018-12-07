@@ -53,6 +53,11 @@ export default {
   max-width: 1360px;
   margin: 0 auto;
 }
+.head-nav {
+  width: 100%;
+  height: 99px;
+  border-bottom: 1px solid rgba(62, 69, 95, 1);
+}
 .nav-wrapper {
   float: right;
 }
@@ -62,5 +67,8 @@ ul {
 }
 li {
   display: inline;
+}
+.logo {
+  color: red;
 }
 </style>

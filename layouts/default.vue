@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="default-layout">
     <div class="head-nav-wrapper">
       <HeadNav />
     </div>
@@ -31,11 +31,20 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-color: rgba(33, 39, 53, 1);
+}
+.default-layout {
+  max-width: 1920px;
+  min-width: 1360px;
+  margin: 0 auto;
 }
 .head-nav-wrapper {
   width: 100%;
-  height: 99px;
-  border-bottom: 1px solid #808080;
+  height: 100px;
 }
 *,
 *:before,
