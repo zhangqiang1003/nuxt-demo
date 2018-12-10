@@ -53,6 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  font-size: 20px;
   .test1 {
     color: #808080;
     & > p {
@@ -71,6 +72,6 @@ export default {
   width: 200px;
   line-height: 100px;
   font-size: 24px;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 </style>
