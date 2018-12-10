@@ -1,8 +1,30 @@
 <template>
-  <div>
+  <div
+    :class="{'show': isShowLayout}"
+    class="default-layout">
     <nuxt/>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Dafault',
+  data() {
+    return {
+      isShowLayout: true
+    }
+  },
+  head() {
+    return {
+      title: '1234'
+    }
+  },
+  mounted() {
+    this.isShowLayout = true
+  }
+}
+</script>
+
 
 <style>
 html {
@@ -15,6 +37,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-color: rgba(33, 39, 53, 1);
 }
 
 *,
@@ -23,7 +50,12 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
+.default-layout {
+  display: none;
+}
+.default-layout.show {
+  display: block;
+}
 .button--green {
   display: inline-block;
   border-radius: 4px;
