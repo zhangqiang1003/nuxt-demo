@@ -13,6 +13,11 @@
 <script>
 export default {
   name: 'ExampleSwiper',
+  head() {
+    return {
+      title: this.title
+    }
+  },
   data() {
     return {
       title: 'swiper'
