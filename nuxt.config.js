@@ -1,5 +1,4 @@
 const pkg = require('./package')
-
 module.exports = {
   mode: 'universal',
 
@@ -13,7 +12,15 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src: '/flexible.js',
+        type: 'text/javascript',
+        charset: 'utf-8'
+      }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
@@ -34,7 +41,8 @@ module.exports = {
   },
   plugins: [
     { src: '~/plugins/i18n.js', ssr: true },
-    { src: '~/plugins/lodash.js', ssr: true }
+    { src: '~/plugins/lodash.js', ssr: true },
+    { src: '~/plugins/swiper.js', ssr: true }
   ],
 
   /*
@@ -84,6 +92,7 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    postcss: [require('postcss-px2rem')({ remUnit: 192 })] // pc端，UI设计图约定为1920px，并且这里配置192; 移动端，UI设计图约定为750px，并且这里对应配置为75；
   }
 }

@@ -19,4 +19,12 @@ $ npm start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).\
+
+## tips
+``` bash
+# 根据项目运行环境（PC端 或 移动端），修改参数配置
+修改 nuxt.config.js 文件 build配置下的postcss 的相关参数值：
+1.当为PC端时，设置 { remUnit: 192 }; - 要求UI设计图width = 1920px;
+2.当为移动端时，设置 { remUnit: 75 }; - 要求UI设计图width = 750px;
+```
