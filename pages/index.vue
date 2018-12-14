@@ -1,13 +1,7 @@
 <template>
-  <section class="container">
-    <div>
-      <div class="test1">
-        <p>23456这是scss的测试</p>
-      </div>
-      <p>这是引入normalize.css的测试</p>
-      <div>{{ $t('TEST1') }}</div>
-    </div>
-  </section>
+  <div class="container">
+    <div>{{ $t('TEST1') }}</div>
+  </div>
 </template>
 
 <script>
@@ -54,17 +48,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   font-size: 20px;
-  .test1 {
-    color: #808080;
-    & > p {
-      // display: block;
-      // height: 100px;
-      // width: 200px;
-      // line-height: 100px;
-      // font-size: 24px;
-      // border: 1px solid red;
-    }
-  }
 }
 .container .test1 > p {
   display: block;

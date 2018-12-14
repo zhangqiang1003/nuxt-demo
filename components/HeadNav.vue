@@ -25,9 +25,9 @@
               to="/main/service">价格</nuxt-link>
           </li>
           <li>
-            <a
+            <nuxt-link
               class="href"
-              href="//www.baidu.com">保障</a>
+              to="//www.baidu.com">保障</nuxt-link>
           </li>
           <li>
             <nuxt-link
@@ -46,15 +46,15 @@
           </li>
         </ul>
         <ul class="user-navs">
-          <li class="mgl20">
-            <nuxt-link
-              class="href"
-              to="/register">注册</nuxt-link>
-          </li>
           <li>
             <nuxt-link
               class="href"
               to="/login">登录</nuxt-link>
+          </li>
+          <li class="mgl20">
+            <nuxt-link
+              class="href"
+              to="/register">免费注册</nuxt-link>
           </li>
         </ul>
       </div>
@@ -131,18 +131,32 @@ li {
 .user-navs {
   // 处理注册和登录
   li {
+    float: right;
+    width: 104px;
     height: 100px;
     background-color: transparent;
+    transition: background-color 0.3s linear;
     &.mgl20 {
       margin-left: 20px;
+    }
+    &:nth-of-type(2) {
+      background-color: rgba(241, 142, 45, 1);
+    }
+    &:nth-of-type(1) {
+      &:hover {
+        & + li {
+          background-color: transparent;
+        }
+      }
     }
     a {
       display: block;
       width: 100%;
       height: 100px;
+      text-align: center;
     }
     &:hover {
-      background-color: rgba(241, 142, 45, 1);
+      background-color: #f8b62d;
     }
   }
 }

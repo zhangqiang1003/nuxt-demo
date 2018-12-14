@@ -5,19 +5,22 @@
     <div class="head-nav-wrapper">
       <HeadNav />
     </div>
-    <nuxt/>
+    <nuxt 
+      class="components"/>
     <div class="footer-wrapper">
-      底部
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
 import HeadNav from '~/components/HeadNav.vue'
+import Footer from '~/components/Footer.vue'
 export default {
   name: 'Default',
   components: {
-    HeadNav
+    HeadNav,
+    Footer
   },
   data() {
     return {
@@ -101,7 +104,14 @@ body {
   color: #fff;
   background-color: #35495e;
 }
+.components {
+  /* border: 1px solid red; */
+  /* overflow: hidden; */
+}
 .footer-wrapper {
   font-size: 24px;
+  max-width: 1920px;
+  min-width: 1360px;
+  /* border: 1px solid red; */
 }
 </style>
