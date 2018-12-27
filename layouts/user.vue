@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="user-layout">
     <nuxt/>
   </div>
 </template>
@@ -24,6 +24,17 @@ html {
   margin: 0;
 }
 
+#__nuxt {
+  height: 100%;
+}
+
+#__layout {
+  height: 100%;
+}
+
+.user-layout {
+  height: 100%;
+}
 .button--green {
   display: inline-block;
   border-radius: 4px;

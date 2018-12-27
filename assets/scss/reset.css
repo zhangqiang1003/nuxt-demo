@@ -1,7 +1,13 @@
+html, body {
+  height: 100%;
+}
 ul {
   padding: 0;
 }
 li {
   padding: 0;
   list-style: none;
+}
+* {
+  user-select: none;
 }
