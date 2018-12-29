@@ -36,7 +36,7 @@ export default {
     return service({
       method: 'post',
       url,
-      params: data
+      data: data
     })
   },
   // get 方法
@@ -52,7 +52,7 @@ export default {
     return service({
       methods: 'delete',
       url,
-      params: data
+      params: data.params
     })
   }
 }

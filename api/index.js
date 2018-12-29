@@ -1,6 +1,8 @@
 // import axios from 'axios'
 import request from '~/service/axios'
 
+// 备注：get传参 { params: data }
+
 export function getArticleList(params) {
   return request
     .get('/tapi/v1/get_entry_by_rank', params)
@@ -66,6 +68,19 @@ export function register(info) {
 // 登录接口
 export function login(info) {
   return request
+    .post('/qapi/api/front/login', info)
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}
+
+// 校验修改的帐号是否存在
+export function validateMember(info) {
+  return request
+    .post('/qapi/api/front/validate_member', info)
     .then(data => {
       return Promise.resolve(data)
     })

@@ -34,7 +34,7 @@
         class="clear-btn"/>
     </div>
     <p class="forget-pass-btn">
-      <nuxt-link to="/">忘记密码？</nuxt-link>
+      <nuxt-link to="/forgot-password">忘记密码？</nuxt-link>
     </p>
     <div
       :class="{'canClick': canClickLoginBtn}"
