@@ -1,0 +1,1 @@
+import initGeetest from '~/assets/js/lib/gt.js'

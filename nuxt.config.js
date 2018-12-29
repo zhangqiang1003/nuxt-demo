@@ -42,7 +42,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/i18n.js', ssr: true },
     { src: '~/plugins/lodash.js', ssr: true },
-    { src: '~/plugins/swiper.js', ssr: true }
+    { src: '~/plugins/swiper.js', ssr: true },
+    { src: '~/plugins/gt.js', ssr: false }
   ],
 
   /*

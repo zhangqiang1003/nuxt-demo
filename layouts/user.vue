@@ -34,6 +34,8 @@ html {
 
 .user-layout {
   height: 100%;
+  background: url(~assets/images/user/login_bg.png) no-repeat;
+  background-size: 100% 100%;
 }
 .button--green {
   display: inline-block;
