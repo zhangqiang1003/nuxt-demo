@@ -62,3 +62,14 @@ export function register(info) {
       return Promise.reject(e)
     })
 }
+
+// 登录接口
+export function login(info) {
+  return request
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}

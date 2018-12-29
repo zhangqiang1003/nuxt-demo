@@ -140,8 +140,9 @@ export default {
     // 处理手机号
     checkMobilePhone: function() {
       // 校验手机号码
-      let status = utils.checkMobilePhone(this.mobilePhone)
-      this.isErrPhone = status ? false : true
+      let status1 = utils.checkMobilePhone(this.mobilePhone)
+      let status2 = utils.checkVirtualPhone(this.mobilePhone) // 校验是否是虚拟商手机号
+      this.isErrPhone = status1 && !status2 ? false : true
       this.checkRegisterBtn()
     },
     clickClearMobilePhone: function() {

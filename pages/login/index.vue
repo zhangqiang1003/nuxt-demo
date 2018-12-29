@@ -11,19 +11,24 @@
     </div>
     <div class="form-groups">
       <input
+        v-model="userName"
         type="text"
-        placeholder="手机号码/邮箱账号">
+        placeholder="手机号码/邮箱账号"
+        @input="checkUserName()">
       <span
         :class="{'show': isErrUser}"
         class="error-tip icon-error-tip"><i />请输入正确的手机号码或邮箱</span>
       <i
         :class="{'show': isShowClearBtn}"
-        class="clear-btn"/>
+        class="clear-btn"
+        @click="clearUserName()"/>
     </div>
     <div class="form-groups">
       <input
+        v-model="userPass"
         type="password"
-        placeholder="密码">
+        placeholder="密码"
+        @input="checkLoginBtn()">
       <i
         :class="{'show': isHidePassBtn}"
         class="clear-btn"/>
@@ -39,6 +44,9 @@
 </template>
 
 <script>
+import utils from '~/service/utils.js'
+import { login } from '~/api'
+
 export default {
   layout: 'user',
   name: 'Login',
@@ -48,17 +56,63 @@ export default {
       isShowClearBtn: false, // 是否显示清空用户名的按钮
       isHidePassBtn: false, // 控制密码是否可见的按钮
       isLoginRoute: false, // 是登录路由地址
-      canClickLoginBtn: false // 是否可以点击登录按钮
+      canClickLoginBtn: false, // 是否可以点击登录按钮
+      userName: undefined, // 用户名
+      userPass: undefined // 密码
+    }
+  },
+  watch: {
+    userName: function() {
+      this.isShowClearBtn = this.userName ? true : false
     }
   },
   created() {
     this.getRoute()
   },
   methods: {
+    // 获取路由
     getRoute: function() {
       let route = this.$route
       // 控制导航条样式
       this.isLoginRoute = route.name === 'login' ? true : false
+    },
+
+    // 校验用户名
+    checkUserName: function() {
+      let status1 = utils.checkMobilePhone(this.userName) // 校验手机号
+      let status2 = utils.checkEmail(this.userName) // 校验邮箱
+      this.isErrUser = status1 || status2 ? false : true
+    },
+
+    // 清空用户名
+    clearUserName: function() {
+      this.userName = undefined
+      this.isShowClearBtn = false
+      this.isErrUser = false
+      this.checkLoginBtn()
+    },
+
+    // 校验登录按钮
+    checkLoginBtn: function() {
+      let status = this.userName && this.userPass && !this.isErrUser
+      this.canClickLoginBtn = status ? true : false
+    },
+
+    // 点击登录按钮
+    clickLoginBtn: function() {
+      if (!this.canClickLoginBtn) return
+      const apiData = {
+        username: this.userName,
+        pwd: this.userPass,
+        csrf: '414c7ad55625f289003613764448a055'
+      }
+      login(apiData)
+        .then(data => {
+          console.log(data)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   }
 }
