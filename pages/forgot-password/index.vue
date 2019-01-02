@@ -50,6 +50,7 @@ export default {
     checkUserName: function() {
       let status1 = utils.checkMobilePhone(this.userName) // 校验手机号
       let status2 = utils.checkEmail(this.userName) // 校验邮箱
+      console.log(status2, 53)
       this.isErrUser = status1 || status2 ? false : true
       this.checkNextBtn()
 
@@ -79,14 +80,16 @@ export default {
 
     // 点击下一步按钮
     clickNextBtn: function() {
+      const that = this;
       if (!this.canClickNextBtn) return
       let apiData = {
         member_name: this.userName,
         type: this.phoneOrEmail
       }
+      const u = Base64.encode(this.userName)
       validateMember(apiData)
         .then(data => {
-          console.log(data)
+          that.$router.push(`/forgot-password/${that.phoneOrEmail}?u=${u}`)
         })
         .catch(e => {
           console.log(e)

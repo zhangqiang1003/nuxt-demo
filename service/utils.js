@@ -11,7 +11,7 @@ export default {
   },
   // 校验邮箱
   checkEmail: function(email) {
-    const re = /[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?/
+    const re = /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/
     return re.test(email) ? true : false // true - 邮箱正确 | false - 邮箱错误
   },
   // 校验密码是否有特殊字符(键盘不能输出的字符)
