@@ -44,7 +44,7 @@ export default {
     return service({
       method: 'get',
       url,
-      params: data
+      data: data.params
     })
   },
   // delete 方法
