@@ -39,6 +39,7 @@
       :class="{'can-click': canClickBtn}"
       class="change-password-btn"
       @click="clickChangePassBtn()">修改密码</div>
+    <div class="footer-copy">©2018&nbsp;QeeYou.cn&nbsp;版权所有</div>
   </div>
 </template>
 
@@ -131,6 +132,7 @@ export default {
   height: 100%;
   width: 340px;
   margin: 0 auto;
+  position: relative;
   // title
   h2 {
     color: #fff;
@@ -238,6 +240,14 @@ export default {
       background-color: rgba(241, 142, 45, 1);
       cursor: pointer;
     }
+  }
+  & > .footer-copy {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    font-size: 14px;
+    color: rgba(172, 175, 184, 1);
   }
 }
 </style>
