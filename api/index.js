@@ -88,3 +88,15 @@ export function validateMember(info) {
       return Promise.reject(e)
     })
 }
+
+// 重置密码
+export function resetPassword(info) {
+  return request
+    .post('/qapi/api/front/reset_password', info)
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}

@@ -65,10 +65,11 @@ export default {
         this.$router.push('/forgot-password')
         return
       }
-      
+
       // 赋值查询字符串参数
       const u = Base64.decode(route.query.u)
-      this.query = this.id === 'mobile' ? u.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2') : u
+      this.query = this.id ===
+        'mobile' ? u.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2') : u
     }
   },
 }
