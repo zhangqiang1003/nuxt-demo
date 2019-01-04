@@ -3,7 +3,7 @@
     :class="{'show': isShowLayout}"
     class="default-layout">
     <div class="head-nav-wrapper">
-      <HeadNav />
+      <HeadNav :scroll-status="scrollStatus"/>
     </div>
     <nuxt 
       class="components"/>
@@ -24,7 +24,8 @@ export default {
   },
   data() {
     return {
-      isShowLayout: true
+      isShowLayout: true,
+      scrollStatus: undefined // 滚动状态 默认 - undefined | ‘up’ - 向上 | ‘down’ - 向下 | ‘no’ - 不支持相关事件
     }
   },
   head() {
@@ -34,7 +35,26 @@ export default {
   },
   mounted() {
     this.isShowLayout = true
-  }
+    //给页面绑定滑轮滚动事件
+    if (document.addEventListener) {
+      document.addEventListener('DOMMouseScroll', this.scrollDirection, false)
+    }
+    //滚动滑轮触发scrollFunc方法
+    window.onmousewheel = document.onmousewheel = this.scrollDirection
+  },
+  methods: {
+    // 监听滚动条的方向
+    scrollDirection: function(e) {
+      e = e || window.event
+      if (e.wheelDelta) { //判断浏览器IE，谷歌滑轮事件
+        this.scrollStatus = e.wheelDelta === 0 ? undefined : (e.wheelDelta > 0 ? 'up' : 'down')
+      } else if (e.detail) { //Firefox滑轮事件
+        this.scrollStatus = e.detail === 0 ? undefined : (e.detail > 0 ? 'up' : 'down')
+      } else {
+        this.scrollStatus = 'no' // 不支持
+      }
+    }
+  },
 }
 </script>
 
@@ -62,7 +82,7 @@ body {
 }
 .head-nav-wrapper {
   width: 100%;
-  height: 100px;
+  /* height: 100px; */
 }
 *,
 *:before,

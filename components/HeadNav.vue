@@ -1,5 +1,7 @@
 <template>
-  <div class="head-nav">
+  <div
+    :class="{'scroll-up': scrollStatus === 'down', 'no-scroll': scrollStatus === 'no'}"
+    class="head-nav">
     <div class="w1360">
       <i class="logo">logo</i>
       <div class="nav-wrapper">
@@ -64,7 +66,14 @@
 
 <script>
 export default {
-  name: 'HeadNav'
+  name: 'HeadNav',
+  props: {
+    scrollStatus: {
+      type: String,
+      default: undefined
+    }
+  },
+  watch: {}
 }
 </script>
 
@@ -80,6 +89,17 @@ export default {
   height: 99px;
   border-bottom: 1px solid rgba(62, 69, 95, 1);
   font-size: 24px;
+  position: fixed;
+  top: 0px;
+  transition: top 0.3s linear;
+  z-index: 2;
+  &.scroll-up {
+    top: -99px;
+    transition: top 0.3s linear;
+  }
+  &.no-scroll {
+    position: relative;
+  }
 }
 .nav-wrapper {
   float: right;

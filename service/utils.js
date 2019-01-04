@@ -18,6 +18,5 @@ export default {
   checkPassword: function(pass) {
     const re = /[^a-zA-Z0-9,\.<>/?;:'\"\[\]\{\}\|\\`~!@#\$%\^&\*\(\)_\+-=]+/
     return re.test(pass) ? false : true // true - 密码合法 | false - 密码不合法
-  },
-  // 获取查询字符串
+  }
 }

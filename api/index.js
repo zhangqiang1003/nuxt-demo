@@ -100,3 +100,15 @@ export function resetPassword(info) {
       return Promise.reject(e)
     })
 }
+
+// 获取最新pc客户端
+export function getLastClient() {
+  return request
+    .get('/qapi/api/front/get_last_client')
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}
