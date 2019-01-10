@@ -1,50 +1,20 @@
 <template>
   <div
-    :class="{'scroll-up': scrollStatus === 'down', 'no-scroll': scrollStatus === 'no'}"
+    :class="{'scroll-up': scrollStatus === 'down',
+             'no-scroll': scrollStatus === 'no',
+             'handle-bg': handleNavBg}"  
     class="head-nav">
     <div class="w1360">
       <i class="logo">logo</i>
       <div class="nav-wrapper">
         <ul class="item-navs">
-          <li>
+          <li
+            v-for="(navlist, index) in navLists"
+            :key="index"
+            :class="{'clicked': navlist.url === currRoute}">
             <nuxt-link
-              class="href"
-              to="/">首页</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="/main/ljb-overview">联机宝</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="/main/qeeyou-mobile">手游加速器</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="/main/service">价格</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="//www.baidu.com">保障</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="/main/game">游戏</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="/main/help">帮助</nuxt-link>
-          </li>
-          <li>
-            <nuxt-link
-              class="href"
-              to="/main/notice">公告</nuxt-link>
+              :to="navlist.url"
+              class="href">{{ navlist.name }}</nuxt-link>
           </li>
         </ul>
         <ul class="user-navs">
@@ -71,9 +41,63 @@ export default {
     scrollStatus: {
       type: String,
       default: undefined
+    },
+    handleNavBg: {
+      type: Boolean,
+      default: false
     }
   },
-  watch: {}
+  data() {
+    return {
+      navLists: [
+        {
+          name: '首页',
+          url: '/'
+        },
+        {
+          name: '联机宝',
+          url: '/main/ljb-overview'
+        },
+        {
+          name: '手游加速器',
+          url: '/main/qeeyou-mobile'
+        },
+        {
+          name: '价格',
+          url: '/main/service'
+        },
+        {
+          name: '保障',
+          url: '/main/SecurityPlan'
+        },
+        {
+          name: '游戏',
+          url: '/main/game'
+        },
+        {
+          name: '帮助',
+          url: '/main/help'
+        },
+        {
+          name: '公告',
+          url: '/main/notice'
+        }
+      ],
+      currRoute: undefined
+    }
+  },
+  watch: {
+    $route: function() {
+      this.currRoute = this.$route.path
+    }
+  },
+  created() {
+    this.currRoute = this.$route.path
+  },
+  beforeDestroy() {
+    this.currRoute = null
+  },
+  motheds: {}
 }
 </script>
 
@@ -99,6 +123,10 @@ export default {
   }
   &.no-scroll {
     position: relative;
+  }
+  &.handle-bg {
+    background-color: rgba(33, 39, 53, .98);
+    border-bottom-color: transparent;
   }
 }
 .nav-wrapper {
@@ -144,6 +172,9 @@ li {
       height: 100px;
     }
     &:hover {
+      border-bottom-color: rgba(241, 142, 45, 1);
+    }
+    &.clicked {
       border-bottom-color: rgba(241, 142, 45, 1);
     }
   }

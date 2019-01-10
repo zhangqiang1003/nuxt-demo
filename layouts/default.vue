@@ -3,9 +3,12 @@
     :class="{'show': isShowLayout}"
     class="default-layout">
     <div class="head-nav-wrapper">
-      <HeadNav :scroll-status="scrollStatus"/>
+      <HeadNav
+        :scroll-status="scrollStatus"
+        :handle-nav-bg="handleNavBg"/>
     </div>
-    <nuxt 
+    <nuxt
+      id="components"
       class="components"/>
     <div class="footer-wrapper">
       <Footer />
@@ -25,13 +28,24 @@ export default {
   data() {
     return {
       isShowLayout: true,
-      scrollStatus: undefined // 滚动状态 默认 - undefined | ‘up’ - 向上 | ‘down’ - 向下 | ‘no’ - 不支持相关事件
+      scrollStatus: undefined, // 滚动状态 默认 - undefined | ‘up’ - 向上 | ‘down’ - 向下 | ‘no’ - 不支持相关事件
+      distance: null,
+      oDom: null,
+      scrollDis: null,
+      domPosition: null,
+      handleNavBg: false
     }
   },
   head() {
     return {
       title: '1234'
     }
+  },
+  watch: {
+    distance: function() {
+      this.handleNavBg = this.distance < -20 ? true : false
+    },
+    $route: 'watchRoute'
   },
   mounted() {
     this.isShowLayout = true
@@ -41,6 +55,16 @@ export default {
     }
     //滚动滑轮触发scrollFunc方法
     window.onmousewheel = document.onmousewheel = this.scrollDirection
+
+    // 获取到顶部的距离的相关参数及方法
+    this.oDom = document.getElementById('components')
+    this.domPosition = parseInt(this.oDom.offsetTop)
+    this.getPositionToY(0)
+  },
+  beforeDestroy() {
+    this.distance = null
+    this.oDom = null
+    window.onscroll = null
   },
   methods: {
     // 监听滚动条的方向
@@ -52,6 +76,40 @@ export default {
         this.scrollStatus = e.detail === 0 ? undefined : (e.detail > 0 ? 'up' : 'down')
       } else {
         this.scrollStatus = 'no' // 不支持
+      }
+    },
+    // 滚动条滚动时，获取某个dom元素在Y轴方向上，距离某个特定位置的距离
+    getPositionToY: function(size) {
+      const that = this
+      window.onscroll = function() {
+        that.scrollDis = document.documentElement.scrollTop || document.body.scrollTop;
+        if (that.oDom.getBoundingClientRect) {
+          that.distance = that.oDom.getBoundingClientRect().y - size;
+        } else {
+          that.distance = that.domPosition - that.scrollDis - size;
+        }
+      }
+    },
+    watchRoute: function() {
+      console.log(this.$route, 49)
+      const route = this.$route.path
+      this.resetWinScroll(route) // 切换路由时，重置window.scroll方法
+    },
+    resetWinScroll: function(route) {
+      // 切换路由时，重置window.scroll方法
+      const status =
+        route === '/' ||
+        route === '/main/ljb-overview' ||
+        route === '/main/qeeyou-mobile' ||
+        route === '/main/service' ||
+        route === '/main/SecurityPlan' ||
+        route === '/main/game' ||
+        route === '/main/help' ||
+        route === '/main/notice' ? true : false
+      
+      if (status) {
+        window.onscroll = null
+        this.getPositionToY(0);
       }
     }
   },
@@ -82,7 +140,6 @@ body {
 }
 .head-nav-wrapper {
   width: 100%;
-  /* height: 100px; */
 }
 *,
 *:before,

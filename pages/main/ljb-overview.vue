@@ -9,3 +9,9 @@ export default {
   name: 'LjbOverview'
 }
 </script>
+
+<style lang="scss" scoped>
+.ljb-overview {
+  height: 3000px;
+}
+</style>
