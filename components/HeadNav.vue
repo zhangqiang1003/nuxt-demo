@@ -118,7 +118,7 @@ export default {
   transition: top 0.3s linear;
   z-index: 2;
   &.scroll-up {
-    top: -99px;
+    top: -101px;
     transition: top 0.3s linear;
   }
   &.no-scroll {
