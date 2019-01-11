@@ -7,14 +7,14 @@
       <div class="download-url">
         <i class="QCode" />
         <div class="download-btn">
-          <nuxt-link
-            to="/"
+          <a
+            :href="downloadHref"
             class="android">
             <i class="icon-android" />
             Android版
-          </nuxt-link>
+          </a>
           <nuxt-link
-            to="/"
+            to="/specials/mobileSpeedDownload"
             class="ios">
             <i class="icon-ios" />
             iOS版
@@ -85,8 +85,32 @@
 </template>
 
 <script>
+import { getMobileClient } from '~/api'
 export default {
-  name: 'QeeyouMobile'
+  name: 'QeeyouMobile',
+  data() {
+    return {
+      downloadHref: 'javascript:;'
+    }
+  },
+  mounted() {
+    this.getAndroidUrl()
+  },
+  methods: {
+    getAndroidUrl: function() {
+      let apiData = {
+        client_type_node: 20,
+        channel_id: null
+      }
+      getMobileClient(apiData)
+        .then(data => {
+          this.downloadHref = data.client_url
+        })
+        .catch(e => {
+          console.log(e)
+        })
+    }
+  },
 }
 </script>
 

@@ -112,3 +112,15 @@ export function getLastClient() {
       return Promise.reject(e)
     })
 }
+
+// 获取手游客户端
+export function getMobileClient(info) {
+  return request
+    .post('/qapi/api/front/get_last_client', info)
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}
