@@ -33,7 +33,8 @@ export default {
       oDom: null,
       scrollDis: null,
       domPosition: null,
-      handleNavBg: false
+      handleNavBg: false,
+      size: 0
     }
   },
   head() {
@@ -44,6 +45,9 @@ export default {
   watch: {
     distance: function() {
       this.handleNavBg = this.distance < -20 ? true : false
+      this.distance < -1600 ?
+        this.$store.commit('handleIndexSwiper', true) :
+        this.$store.commit('handleIndexSwiper', false)
     },
     $route: 'watchRoute'
   },
@@ -62,9 +66,10 @@ export default {
     this.getPositionToY(0)
   },
   beforeDestroy() {
+    const that = this
     this.distance = null
     this.oDom = null
-    window.onscroll = null
+    window.removeEventListener('scroll', that.scrollResult)
   },
   methods: {
     // 监听滚动条的方向
@@ -81,22 +86,22 @@ export default {
     // 滚动条滚动时，获取某个dom元素在Y轴方向上，距离某个特定位置的距离
     getPositionToY: function(size) {
       const that = this
-      window.onscroll = function() {
-        that.scrollDis = document.documentElement.scrollTop || document.body.scrollTop;
-        if (that.oDom.getBoundingClientRect) {
-          that.distance = that.oDom.getBoundingClientRect().y - size;
-        } else {
-          that.distance = that.domPosition - that.scrollDis - size;
-        }
-      }
+      this.size = size
+      window.addEventListener('scroll', that.scrollResult)
+    },
+    scrollResult: function() {
+      this.scrollDis = document.documentElement.scrollTop || document.body.scrollTop;
+      this.distance = this.domPosition - this.scrollDis - this.size;
     },
     watchRoute: function() {
-      console.log(this.$route, 49)
       const route = this.$route.path
-      this.resetWinScroll(route) // 切换路由时，重置window.scroll方法
+
+      // 切换路由时，重置window.scroll方法
+      this.resetWinScroll(route)
     },
     resetWinScroll: function(route) {
       // 切换路由时，重置window.scroll方法
+      const that = this
       const status =
         route === '/' ||
         route === '/main/ljb-overview' ||
@@ -105,10 +110,11 @@ export default {
         route === '/main/SecurityPlan' ||
         route === '/main/game' ||
         route === '/main/help' ||
-        route === '/main/notice' ? true : false
+        route === '/main/notice'
+        ? true : false
       
       if (status) {
-        window.onscroll = null
+        window.removeEventListener('scroll', that.scrollResult)
         this.getPositionToY(0);
       }
     }

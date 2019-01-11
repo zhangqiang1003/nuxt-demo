@@ -1,6 +1,7 @@
 export const state = () => ({
   locales: ['EN', 'CN'],
-  locale: 'CN'
+  locale: 'CN',
+  indexSwiperStatus: false
 })
 
 export const mutations = {
@@ -8,5 +9,8 @@ export const mutations = {
     if (state.locales.indexOf(locale) !== -1) {
       state.locale = locale
     }
+  },
+  handleIndexSwiper(state, status) {
+    state.indexSwiperStatus = status
   }
 }

@@ -215,15 +215,26 @@ export default {
           intro: '致力帮助中国游戏的steam游戏鉴赏家',
           detail: '稳定的性能以及精致的UI界面，不管哪一方面，奇游都让我感到舒适。让玩家舒适地进行游戏，这应该就是一个加速器最应该做到的吧。'
         }
-      ]
+      ],
+      commentSwiper: null // 首页轮播图的实例对象
+    }
+  },
+  computed: {
+    // 控制首页的轮播图
+    handleIndexSwiper: function() {
+      return this.$store.state.indexSwiperStatus
+    }
+  },
+  watch: {
+    // 监听首页轮播图是否开启的状态
+    handleIndexSwiper: function() {
+      this.handleIndexSwiper ? this.initSwiper() : this.commentSwiper.destroy(true, true)
     }
   },
   created() {
     this.getLastClient()
   },
-  mounted() {
-    this.initSwiper();
-  },
+  mounted() {},
   methods: {
     getLastClient: function() {
       getLastClient()
@@ -236,7 +247,7 @@ export default {
         })
     },
     initSwiper: function() {
-      let commentSwiper = new this.Swiper('#comment-swiper', {
+      this.commentSwiper = new this.Swiper('#comment-swiper', {
         autoplay: {
           disableOnInteraction: false,
           delay: 5000
