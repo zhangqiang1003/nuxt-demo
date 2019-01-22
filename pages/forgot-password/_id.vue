@@ -27,7 +27,7 @@
       <p>验证信息已发送至邮箱：</p>
       <p class="email-p">{{ query }}</p>
       <a
-        href="//email.qq.com"
+        :href="qqEmail"
         target="_blank"
         class="email-btn">查看邮箱</a>
       <p class="">邮件未收到？
@@ -47,7 +47,8 @@ export default {
   data() {
     return {
       id: undefined, // 动态路由参数
-      query: '738441903@qq.com' // 查询字符串参数
+      query: '738441903@qq.com', // 查询字符串参数
+      qqEmail: '//email.qq.com'
     }
   },
   created() {
