@@ -124,3 +124,27 @@ export function getMobileClient(info) {
       return Promise.reject(e)
     })
 }
+
+// 获取轮播图的游戏推荐
+export function gameCarouselList() {
+  return request
+    .get('/qapi/api/front/game_carousel_list')
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}
+
+// 获取不同类型的游戏推荐
+export function gameList() {
+  return request
+    .get('/qapi/api/front/game_list')
+    .then(data => {
+      return Promise.resolve(data)
+    })
+    .catch(e => {
+      return Promise.reject(e)
+    })
+}

@@ -105,17 +105,58 @@
         </div>
       </div>
     </div>
+    <!-- 下载按钮 -->
+    <div class="download-wrapper">
+      <h3>奇开得胜，游我掌控！</h3>
+      <p>即刻享受极致加速体验</p>
+      <div class="btns">
+        <nuxt-link
+          to="/"
+          class="btn">
+          下载PC客户端
+        </nuxt-link>
+        <nuxt-link
+          to="/"
+          class="btn">
+          联机宝
+        </nuxt-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { gameCarouselList, gameList } from '~/api/index'
 export default {
   name: 'Game',
+  asyncData() {
+    gameCarouselList()
+      .then(data => {
+        return { gameCarouselListData: data }
+      })
+      .catch(e => {
+        
+      })
+    gameList()
+      .then(data => {
+        return { gameListData: data }
+      })
+      .catch(e => {
+
+      })
+  },
   data() {
-    return {}
+    return {
+      gameCarouselListData: null,
+      gameListData: null
+    }
+  },
+  created() {
+    
   },
   mounted() {
-    this.initGameSwiper();
+    this.initGameSwiper()
+    this.getGameCarouselList()
   },
   methods: {
     // 初始化游戏推荐轮播
@@ -137,6 +178,16 @@ export default {
           }
         }
       })
+    },
+    // 获取轮播推荐游戏
+    getGameCarouselList: function() {
+      gameCarouselList()
+        .then(data => {
+          console.log(data)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   },
 }
@@ -447,6 +498,60 @@ export default {
             background: url(~assets/images/game/game_type_icon.png) no-repeat;
             background-size: 229px 42px;
             background-position: -12px -30px;
+          }
+        }
+      }
+    }
+  }
+
+  // 下载按钮
+  .download-wrapper {
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 120px;
+    h3 {
+      font-size: 36px;
+      color: #fff;
+      font-weight: 400;
+    }
+    p {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+    .btns {
+      margin-top: 40px;
+      .btn {
+        display: inline-block;
+        width: 208px;
+        height: 60px;
+        vertical-align: top;
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        line-height: 56px;
+        font-weight: 400;
+        border-radius: 30px;
+        &:nth-of-type(1) {
+          border: 2px solid rgba(241, 142, 45, 1);
+          background-color: rgba(241, 142, 45, 1);
+          margin-right: 20px;
+          box-shadow: 0px 10px 30px 0px rgba(241,142,45,0.3);
+          transition: background-color 0.2s linear, border-color 0.2s linear;
+          &:hover {
+            background-color: #f8b62d;
+            border-color: #f8b62d;
+          }
+        }
+        &:nth-of-type(2) {
+          border: 2px solid rgba(76, 90, 112, 1);
+          background-color: transparent;
+          transition: background-color 0.2s linear, border-color 0.2s linear, box-shadow 0.2s linear;
+          &:hover {
+            background-color: #f8b62d;
+            border-color: #f8b62d;
+            box-shadow: 0px 10px 30px 0px rgba(241,142,45,0.3);
           }
         }
       }
